@@ -11,18 +11,11 @@ https://www2.eecs.berkeley.edu/Research/Projects/CS/vision/grouping/resources.ht
 
 # Prerequirement
 for training
-Python 3  
-OpenCV-Python  
-Numpy  
-Tqdm  
-Tensorflow
-Picke  
+Python 3, OpenCV-Python, Numpy, Tqdm, Tensorflow, Picke  
   
-for testing
-Scipy  
-Glob 
-Sklearn  
-
+for testing  
+Scipy, Glob, Sklearn    
+  
 # Training
 Pickle dump batch of the encoded images from LSUN.  
 Then save under the data folder, and simply type "python SRLSGAN.py".
