@@ -14,9 +14,9 @@ from tqdm import tqdm,trange
 
 
 img_size = (96, 96)
-train_data = proccess2.LSUN(["train"+str(i) for i in range(1,20)],img_size)
-test_data = proccess2.LSUN(["train20"],img_size)
-val_data = proccess2.LSUN(["val"],img_size)
+train_data = proccess2.LSUN(["data/train"+str(i) for i in range(1,20)],img_size)
+test_data = proccess2.LSUN(["data/train20"],img_size)
+val_data = proccess2.LSUN(["data/val"],img_size)
 
 
 # In[3]:
