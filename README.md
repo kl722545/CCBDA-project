@@ -10,13 +10,13 @@ The images for testing are random sampled 20 images of training part of Berkeley
 https://www2.eecs.berkeley.edu/Research/Projects/CS/vision/grouping/resources.html  
 
 # Prerequirement
-for training
+for training  
 Python 3, OpenCV-Python, Numpy, Tqdm, Tensorflow, Picke  
   
 for testing  
 Scipy, Glob, Sklearn    
   
-# Training
+# Training  
 Pickle dump batch of the encoded images from LSUN.  
 Then save under the data folder, and simply type "python SRLSGAN.py".
 
