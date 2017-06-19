@@ -18,7 +18,9 @@ Scipy, Glob, Sklearn
   
 # Training  
 Pickle dump batch of the encoded images from LSUN.  
-Then save under the data folder, and simply type "python SRLSGAN.py".
+Then save under the data folder, and simply type "python SRLSGAN.py".  
+The loss has be modified to ![equation](https://latex.codecogs.com/gif.latex?%5Cbg_white%20l%5E%7B%5Ctext%7BSR%7D%7D%20%3D%20l_%7B%5Ctext%7BX%7D%7D%5E%7B%5Ctext%7BSR%7D%7D%20&plus;%2010%5E%7B-2%7Dl_%7B%5Ctext%7BGAN%7D%7D%5E%7B%5Ctext%7BSR%7D%7D) for generator, where ![equation](https://latex.codecogs.com/gif.latex?%5Cbg_white%20l_%7B%5Ctext%7BGAN%7D%7D%5E%7B%5Ctext%7BSR%7D%7D%20%3D%20%5Cfrac%7B1%7D%7B2%7D%5Cmathbb%7BE%7D_%7B%5Cmathbf%7Bz%7D%20%5Csim%20p_%5Cmathbf%7Bz%7D%28%5Cmathbf%7Bz%7D%29%7D%5Cleft%5B%20%28D%28G%28%5Cmathbf%7Bz%7D%29%29-1%29%5E2%5Cright%5D)  
+Also for discriminator ![equation](https://latex.codecogs.com/gif.latex?%5Cbg_white%20l_%7B%5Ctext%7BDIS%7D%7D%5E%7B%5Ctext%7BSR%7D%7D%20%3D%2010%5E%7B-2%7D%5Cleft%28%20%5Cfrac%7B1%7D%7B2%7D%5Cmathbb%7BE%7D_%7B%5Cmathbf%7Bx%7D%20%5Csim%20p_%5Ctext%7Bdata%7D%28%5Cmathbf%7Bx%7D%29%7D%5Cleft%5B%20%28D%28%5Cmathbf%7Bx%7D%29-1%29%5E2%5Cright%5D&plus;%20%5Cfrac%7B1%7D%7B2%7D%5Cmathbb%7BE%7D_%7B%5Cmathbf%7Bz%7D%20%5Csim%20p_%5Cmathbf%7Bz%7D%28%5Cmathbf%7Bz%7D%29%7D%5Cleft%5B%20%28D%28G%28%5Cmathbf%7Bz%7D%29%29%29%5E2%5Cright%5D%5Cright%20%29).    
 
 # Testing
 Cd to ls_model folder, and type "python SRLSGAN_test.py".
