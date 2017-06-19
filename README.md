@@ -1,6 +1,7 @@
 # CCBDA-project
 Paper implementation for Super Resolution using a Generative Adversarial Network with Least Square modification  
-https://arxiv.org/abs/1609.04802
+https://arxiv.org/abs/1609.04802  
+https://arxiv.org/abs/1611.04076  
 
 # dataset
 The images used from training in the project are first 190000 ones of Bedroom part of Large-scale Scene Understanding Challenge (LSUN) dataset.  
