@@ -21,13 +21,13 @@ for filename in glob.glob('./high_resolution/*.jpg'): #assuming gif
     lr_im_gray = cv2.cvtColor(lr_im, cv2.COLOR_BGR2GRAY)
     #cv2.imshow("HR", hr_im_gray)
     #cv2.waitKey()
-    psnr_measure_list = [filename[17:], psnr.psnr(lr_im,hr_im),psnr.psnr(rl_im,hr_im),psnr.psnr(sr_im,hr_im)]
-    ssim_measure_list = [filename[17:], ssim.ssim(lr_im_gray,hr_im_gray),ssim.ssim(rl_im_gray,hr_im_gray),ssim.ssim(sr_im_gray,hr_im_gray)]
+    psnr_measure_list = [filename[18:], psnr.psnr(lr_im,hr_im),psnr.psnr(rl_im,hr_im),psnr.psnr(sr_im,hr_im)]
+    ssim_measure_list = [filename[18:], ssim.ssim(lr_im_gray,hr_im_gray),ssim.ssim(rl_im_gray,hr_im_gray),ssim.ssim(sr_im_gray,hr_im_gray)]
     psnr_measure.append(psnr_measure_list)
     ssim_measure.append(ssim_measure_list)
-with open("psnr.csv", "w") as f:
+with open("psnr.csv", "w",newline="") as f:
     writer = csv.writer(f)
     writer.writerows(psnr_measure)
-with open("ssim.csv", "w") as f:
+with open("ssim.csv", "w",newline="") as f:
     writer = csv.writer(f)
     writer.writerows(ssim_measure)
