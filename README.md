@@ -24,7 +24,8 @@ Glob
 Sklearn  
 
 # Training
-Pickle dump batch of the encoded images from LSUN and save under the data folder,and simply type "python SRLSGAN.py".
+Pickle dump batch of the encoded images from LSUN.  
+Then save under the data folder, and simply type "python SRLSGAN.py".
 
 # Testing
 Cd to ls_model folder, and type "python SRLSGAN_test.py".
