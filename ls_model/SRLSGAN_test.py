@@ -10,7 +10,6 @@ import glob
 from os.path import exists
 from sklearn import feature_extraction
 from tqdm import trange
-import matplotlib.pyplot as plt
 import pickle
 # In[2]:
 
@@ -220,26 +219,16 @@ image_out_dir = './super_resolution/'
 if not exists(image_out_dir):
     os.makedirs(image_out_dir)
 for filename in glob.glob('./low_resolution/*.jpg'):
-    im = cv2.cvtColor(cv2.imread(filename),cv2.COLOR_BGR2RGB)
+    im = cv2.imread(filename)
     im_patches = feature_extraction.image.extract_patches_2d(im, (img_size[0]//4,img_size[1]//4))
-    #plt.imshow(im.astype(np.uint8))
-    #plt.show()
-    #plt.imshow(im_patches[100].astype(np.uint8))
-    #plt.show()
     im_patches = im_patches / 255.*2 -1
-    print(im_patches.shape)
     upsampled_patches = []
     for i in trange(int(round(im_patches.shape[0]/minibatch_size + 0.5))):
         minibatch_upsampled_patches = sess.run(test_sr_image,{test_image_input : im_patches[i*minibatch_size : (i+1)*minibatch_size]})
         upsampled_patches += minibatch_upsampled_patches.tolist()
     upsampled_patches = np.clip(np.array(upsampled_patches),-1,1).astype(np.float32)
-    #plt.imshow(((upsampled_patches[100]+1)/2*255+0.5).astype(np.uint8))
-    #plt.show()
     upsampled_im = reconstruct_from_patches_2d(upsampled_patches , (im.shape[0] * 4,im.shape[1] *4, 3) , (4,4))
     upsampled_im = ((upsampled_im+1)/2*255+0.5).astype(np.uint8)
-    #plt.imshow(upsampled_im)
-    #plt.show()
-    upsampled_im = cv2.cvtColor(upsampled_im,cv2.COLOR_RGB2BGR) 
     new_file_name = image_out_dir + filename[17:]
     cv2.imwrite(new_file_name,upsampled_im,[cv2.IMWRITE_JPEG_QUALITY, 100])
     print("wrire {0}".format(new_file_name))
