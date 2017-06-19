@@ -188,9 +188,9 @@ saver = tf.train.Saver()
 
 sess = tf.Session()
 sess.run(tf.global_variables_initializer())
-print("model restored")
-saver.restore(sess,"./ls_model/ls_model.ckpt")
-for i in tqdm(range(10)):
+#print("model restored")
+#saver.restore(sess,"./ls_model/ls_model.ckpt")
+for i in tqdm(range(15)):
     for j in tqdm(range(190000 // minibatch_size)):
         batch_image = train_data.get_next_batch(minibatch_size)/255.* 2 - 1
         _,_,train_loss["dis"] = sess.run([train_discriminator, discriminator_update_ops,discrininator_loss], {image_input: batch_image})
